@@ -13,6 +13,9 @@
 .idea/**/dictionaries
 .idea/**/shelf
 python_venv/
+.idea/
+.ipynb_checkpoints/
+
 
 
 # Generated files
