@@ -279,3 +279,5 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/windows,pycharm,python
 .idea/WEB_programming.iml
 .idea/misc.xml
+.idea/misc.xml
+.idea/WEB_programming.iml
