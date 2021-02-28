@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <style>
+    div{
+      font-size: 100px;
+      height: 1500px;
+      margin:0px;
+      /* 배경에 이미지를 넣음; 배경의 크기에 맞게 이미지가 반복되어 나타남 */
+      background-image: url(images/smile_emoji.png);
+      /* 아래와 같이 하면 이미지가 반복되지 않음 */
+      background-repeat: no-repeat;
+
+      /* background-attachment:fixed;를 통해 이미지를 스크롤에 따라 고정가능; scroll로 하면 원래대로 */
+      background-attachment:fixed;
+
+      /* 배경의 크기 설정 px, cover, contain 가능 */
+      background-size: contain;
+
+      /* background-position으로 위치 조정 가능 */
+      background-position: center center;
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contents">
+      hi
+  </div>
+
+</body>
+
+</html>

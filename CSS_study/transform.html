@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    *{
+      box-sizing:border-box;
+      text-align:center;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+    body{
+      background-color: #3f3d4a;
+    }
+    h1{
+      font-size:45px;
+      font-weight: bold;
+      color:white;
+      padding-bottom:15px;
+      border-bottom: 2px solid;
+
+    }
+    h2{
+      font-size:35px;
+      font-weight: bold;
+      color:#d9d9d9;
+      padding-top: 40px;
+    }
+
+    .container{
+      column-width: 250px;
+    }
+    .container > .box{
+      width: 200px;
+      height: 200px;
+      background-color: #2d2d2e;
+      display: inline-block;
+      margin-top:20px;
+      margin-bottom:20px;
+      box-shadow: 7px 7px 5px black;
+    }
+
+    .container > .box > div{
+      position: relative;
+      top: 20px;
+      margin:0 auto;
+      width: 120px;
+      height: 120px;
+      background-color: #d9d9d9;
+
+    }
+
+    .container > .box > div > .transform_box{
+      width: 120px;
+      height: 120px;
+      background-color: white;
+      opacity: 0.8;
+      transition: all 0.4s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .container > .box > p{
+      position: relative;
+      top: 20px;
+      color:white;
+      font-size: 20px;
+      line-height:5px;
+    }
+
+
+    /* -----------transform basic-------------- */
+
+    .rotate > .transform_box:hover{
+      transform: rotate(45deg)
+    }
+
+    .rotateX > .transform_box:hover{
+      transform: rotateX(45deg);
+    }
+
+    .rotateY > .transform_box:hover{
+      transform: rotateY(45deg);
+    }
+
+    .rotateZ > .transform_box:hover{
+      transform: rotateZ(45deg);
+    }
+
+    .scale > .transform_box:hover{
+      transform: scale(2);
+    }
+
+    .scaleX > .transform_box:hover{
+      transform: scaleX(2);
+    }
+
+    .scaleY > .transform_box:hover{
+      transform: scaleY(2);
+    }
+
+    .skew > .transform_box:hover{
+      transform: skew(45deg, 30deg);
+    }
+
+    .skewX > .transform_box:hover{
+      transform: skewX(45deg);
+    }
+
+    .skewY > .transform_box:hover{
+      transform: skewY(45deg);
+    }
+
+    .translate > .transform_box:hover{
+      transform: translate(45px, 45px);
+    }
+
+    .translateX > .transform_box:hover{
+      transform: translateX(45px);
+    }
+
+    .translateY > .transform_box:hover{
+      transform: translateY(45px);
+    }
+
+    .matrix > .transform_box:hover{
+      /* matrix (scaleX, skewX, skewY, scaleY, translateX, translateY) */
+      transform: matrix(1,0,1,2,-60,-60);
+    }
+
+    /* ---------transform-origin--------------- */
+
+    .container:nth-of-type(2) > .box:nth-of-type(odd) > div > .transform_box{
+      background-color: #bdc0db;
+      transform-origin: 100% 0;
+    }
+
+    .container:nth-of-type(2) > .box:nth-of-type(even) > div > .transform_box{
+      background-color: #edbec3;
+      transform-origin: 0 100%;
+    }
+
+
+    .container:nth-of-type(2) > .box > p{
+      font-size: 17px;
+    }
+    .container:nth-of-type(2) > .box{
+      position: relative;
+    }
+
+    img{
+      position: absolute;
+      width: 50px;
+      height: 45px;
+      z-index: 999;
+    }
+
+    .container:nth-of-type(2) > .box:nth-of-type(odd) img{
+      right: 12px;
+    }
+    .container:nth-of-type(2) > .box:nth-of-type(even) img{
+      left: 15px;
+      bottom: 35px;
+    }
+
+    /* ------------transform perspective------------- */
+    .container:nth-of-type(3){
+      display: inline;
+    }
+
+    .container:nth-of-type(3) > .box{
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+    .container:nth-of-type(3) .perspective{
+      font-size: 28px;
+      color: white;
+      margin-top: 60px;
+      margin-bottom: 0;
+
+    }
+    .container:nth-of-type(3) .box:nth-of-type(1) > .rotateX .transform_box:hover{
+      transform: perspective(100px) rotateX(45deg);
+    }
+
+    .container:nth-of-type(3) .box:nth-of-type(2) > .rotateY .transform_box:hover{
+      transform: perspective(100px) rotateY(45deg);
+    }
+
+    .container:nth-of-type(3) .box:nth-of-type(1) .transform_box,
+    .container:nth-of-type(3) .box:nth-of-type(2) .transform_box{
+      background-color:#268f00;
+    }
+
+    .container:nth-of-type(3) .box:nth-of-type(3) > .rotateX .transform_box:hover{
+      transform: perspective(500px) rotateX(45deg);
+    }
+
+    .container:nth-of-type(3) .box:nth-of-type(4) > .rotateY .transform_box:hover{
+      transform: perspective(500px) rotateY(45deg);
+    }
+
+    .container:nth-of-type(3) .box:nth-of-type(3) .transform_box,
+    .container:nth-of-type(3) .box:nth-of-type(4) .transform_box{
+    background-color:#8fe371;
+    }
+
+    .container:nth-of-type(3) .box:nth-of-type(5) > .rotateX .transform_box:hover{
+      transform: perspective(10000px) rotateX(45deg);
+    }
+
+    .container:nth-of-type(3) .box:nth-of-type(6) > .rotateY .transform_box:hover{
+      transform: perspective(1000px) rotateY(45deg);
+    }
+
+    .container:nth-of-type(3) .box:nth-of-type(5) .transform_box,
+    .container:nth-of-type(3) .box:nth-of-type(6) .transform_box{
+      background-color:#dfffd4;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h1>transform</h1>
+
+  <h2>transform-basic</h2>
+  <div class="container">
+    <div class="box">
+      <div class='rotate'>
+        <div class="transform_box"></div>
+      </div>
+      <p>rotate(45deg)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='rotateX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>rotateX(45deg)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='rotateY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>rotateY(45deg)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='rotateZ'>
+        <div class="transform_box"></div>
+      </div>
+      <p>rotateZ(45deg)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='scale'>
+        <div class="transform_box"></div>
+      </div>
+      <p>scale(2)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='scaleX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>scaleX(2)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='scaleY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>scaleY(2)
+      </p>
+    </div>
+
+    <div class="box">
+        <div class='skew'>
+          <div class="transform_box"></div>
+        </div>
+        <p>skew(45deg, 30deg)
+        </p>
+      </div>
+
+    <div class="box">
+      <div class='skewX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>skewX(45deg)
+      </p>
+    </div>
+    <div class="box">
+      <div class='skewY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>skewY(45deg)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='translate'>
+        <div class="transform_box"></div>
+      </div>
+      <p>translate(45px, 45px)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='translateX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>translateX(45px)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='translateY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>translateY(45px)
+      </p>
+    </div>
+
+    <div class="box">
+      <div class='matrix '>
+        <div class="transform_box"></div>
+      </div>
+      <p>matrix(1,0,1,2,-60,-60)
+      </p>
+    </div>
+
+  </div>
+
+<!-- ----------------------------------------------->
+
+  <h2>transform-origin</h2>
+
+  <div class="container">
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='rotate'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 100% 0;</p>
+      <p>rotate(45deg)</p>
+    </div>
+
+
+      <div class="box">
+        <img src="images/crosshair.png" alt="red crosshair images">
+        <div class='rotate'>
+          <div class="transform_box"></div>
+        </div>
+        <p>transform-origin: 0 100%;</p>
+        <p>rotate(45deg)
+        </p>
+      </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='rotateX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 100% 0;</p>
+      <p>rotateX(45deg)
+      </p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='rotateX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 0 100%;</p>
+      <p>rotateX(45deg)</p>
+    </div>
+
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='rotateY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 100% 0;</p>
+      <p>rotateY(45deg)
+      </p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='rotateY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 0 100%;</p>
+      <p>rotateY(45deg)</p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='rotateZ'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 100% 0;</p>
+      <p>rotateZ(45deg)
+      </p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='rotateZ'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 0 100%;</p>
+      <p>rotateZ(45deg)</p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='scale'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 100% 0;</p>
+      <p>scale(2)
+      </p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='scale'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 0 100%;</p>
+      <p>scale(2)</p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='scaleX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 100% 0;</p>
+      <p>scaleX(2)
+      </p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='scaleX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 0 100%;</p>
+      <p>scaleX(2)</p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='scaleY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 100% 0;</p>
+      <p>scaleY(2)
+      </p>
+    </div>
+
+    <div class="box">
+      <img src="images/crosshair.png" alt="red crosshair images">
+      <div class='scaleY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>transform-origin: 0 100%;</p>
+      <p>scaleY(2)</p>
+    </div>
+  </div>
+
+  <!-- ----------------------------------------------->
+<h2>transform-perspective</h2>
+
+  <div class="container">
+      <p class='perspective'>perspective(100px)</p>
+    <div class="box">
+      <div class='rotateX'>
+        <div class="transform_box"></div>
+      </div>
+      <p>rotateX(45deg)</p>
+    </div>
+
+    <div class="box">
+      <div class='rotateY'>
+        <div class="transform_box"></div>
+      </div>
+      <p>rotateY(45deg)</p>
+    </div>
+
+      <p class='perspective'>perspective(500px)</p>
+      <div class="box">
+        <div class='rotateX'>
+          <div class="transform_box"></div>
+        </div>
+        <p>rotateX(45deg)</p>
+      </div>
+
+      <div class="box">
+        <div class='rotateY'>
+          <div class="transform_box"></div>
+        </div>
+        <p>rotateY(45deg)</p>
+      </div>
+
+      <p class='perspective'>perspective(1000px)</p>
+      <div class="box">
+        <div class='rotateX'>
+          <div class="transform_box"></div>
+        </div>
+        <p>rotateX(45deg)</p>
+      </div>
+
+      <div class="box">
+        <div class='rotateY'>
+          <div class="transform_box"></div>
+        </div>
+        <p>rotateY(45deg)</p>
+      </div>
+
+  </div>
+</body>
+
+</html>

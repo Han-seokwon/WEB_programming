@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <style>
+    /*
+    - position ; 태그를 어떻게 위치시킬지를 결정
+      - position은 아래의 5가지 속성을 가진다
+      - static: 기본값, 다른 태그와의 관계에 의해 자동으로 배치되며 위치를 임의로 설정해 줄 수 없습니다.
+        § 위치 지정 속성이 적용안됨
+      - absolute: 절대 좌표와 함께 위치를 지정해 줄 수 있습니다.
+      - relative: 원래 있던 위치를 기준으로 좌표를 지정합니다.
+      - fixed: 스크롤과 상관없이 항상 문서 최 좌측상단을 기준으로 좌표를 고정합니다.
+      - inherit: 부모 태그의 속성값을 상속받습니다.
+      출처: https://ofcourse.kr/css-course/position-%EC%86%8D%EC%84%B1
+
+    - <위치 지정 속성>
+      - left: 문서 좌측에서 태그 좌측 좌표 거리
+      - right: 문서 좌측에서 태그 좌측 좌표 거리
+      - top: 문서 좌측에서 태그 좌측 좌표 거리
+      - bottom: 문서 좌측에서 태그 좌측 좌표 거리
+     출처: https://mainia.tistory.com/3218
+    */
+      div{
+        padding:20px;
+        border:5px solid black;
+        font-weight:bold;
+      }
+      .Parent2{
+        /* position:relative; */
+
+      }
+      .Parent3{
+        /* position:relative; */
+
+      }
+      .Parent3 div{
+        padding:30px;
+      }
+
+      .Parent3 #static{
+        position:static;
+        /*위치 지정 속성 무효*/
+        left:100px;
+        border:5px solid red;
+        background-color: pink;
+      }
+
+      .Parent3 #relative{
+        position:relative;
+        /*위치 지정 속성 유효함*/
+        /*부모 태그의 위치를 기준으로 해서 자신의 위치 결정*/
+        /*부모 태그의 위치에 따라 자신의 위치도 변함*/
+        /*부모기준으로 자신의 원래 위치를 기억하고 있음*/
+        left:30px;
+        top:0px;
+        border:5px solid green;
+        background-color: lightgreen;
+      }
+
+
+      .Parent3 #absolute{
+        position:absolute;
+        /*위치 지정 속성 유효함*/
+        /*부모태그로 부터 자유로워짐*/
+        /*부모태그가 relative이면 부모태그를 기준으로 함; 원래위치 상관없음*/
+        /*부모 태그가 static이면 무시하고 그 위의 부모태그 혹은 전체 문서를 기준으로 함*/
+        /*원래 자신의 위치는 기억; 위치지정속성을 지우면 원래위치로 돌아감*/
+        top:0;
+        left:0;
+        border:5px solid blue;
+        background-color: skyblue;
+      }
+      .Parent3 #fixed{
+        position:fixed;
+        /*위치 지정 속성 유효함*/
+        /*모든 부모태그로 부터 자유로워짐*/
+        /*스크롤로부터도 자유로워짐*/
+        /*원래 자신의 위치는 기억; 위치지정속성을 지우면 원래위치로 돌아감*/
+        left:0;
+        top:0;
+        border:5px solid purple;
+        background-color: #ba84e3;
+      }
+
+
+    </style>
+
+  </head>
+
+  <body>
+  <div>TOP</div>
+  <div class='Parent1'> Parent 1
+    <div class= 'Parent2'> Parent 2
+      <div class='Parent3'> Parent 3
+
+        <div>Hello top</div>
+        <div id='static'>static</div>
+        <div id='relative'>relative</div>
+
+        <div id='absolute'>absolute</div>
+        <div id='fixed'>fixed</div>
+        <div>Hello</div>
+
+
+      </div>
+      <div>Hello bottom</div>
+    </div>
+  </div>
+
+  </body>
+
+
+</html>

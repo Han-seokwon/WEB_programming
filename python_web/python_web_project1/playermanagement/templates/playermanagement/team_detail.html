@@ -1,0 +1,9 @@
+{% extends "base_player.html"%}
+
+{% block content %}
+    <h1>{{object.team_name}}</h1>
+
+    <p>Win: {{object.win}}</p>
+    <p>Lose: {{object.lose}}</p>
+    <p>Playoff: {{object.playoff}}</p>
+{% endblock content %}

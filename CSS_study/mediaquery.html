@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href='style.css'>
+    <style>
+    /* media query:
+     콘텐츠 렌더링이 화면 해상도와 같은 다양한 조건에 적응할 수 있도록하는 CSS 3의 기능  */
+     body{
+       border: 4px solid #74ed94;
+     }
+     body .title{
+       font-size:50px;
+       text-align:center;
+       padding:20px;
+       border-bottom: 4px solid #74ed94;
+     }
+     .container{
+       display:grid;
+       grid-template-columns:140px 1fr;
+     }
+
+     .container .index{
+       border-right: 4px solid  #74ed94;
+       text-align:center;
+     }
+     .container .index ul{
+      list-style:none;
+      padding-left:0px;
+     }
+     .container .index li{
+       padding-top:10px;
+     }
+     .container .content{
+       padding:5px;
+     }
+
+    /* screen with > 1200px */
+    @media(min-width:1200px){
+
+    }
+    /* screen with < 800px */
+    @media(max-width:800px){
+      .container{
+        display:block
+      }
+      .container .index{
+        border-right: none;
+        border-bottom: 4px solid #74ed94;
+      }
+      .container .index ul{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .container .index li{
+        padding-top:0px;
+      }
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class='title'>TITLE</div>
+
+    <div class='container'><!--부모 div -->
+      <div class='index'>
+        <nav>
+          <ul>
+            <li>index1</li>
+            <li>index2</li>
+            <li>index3</li>
+          </ul>
+        <nav>
+      </div>
+        <div class='content'>종속형 시트 또는 캐스케이딩 스타일 시트(Cascading Style Sheets, CSS)는 마크업 언어가 실제 표시되는 방법을 기술하는 언어로[1], HTML과 XHTML에 주로 쓰이며, XML에서도 사용할 수 있다. W3C의 표준이며, 레이아웃과 스타일을 정의할 때의 자유도가 높다.
+
+마크업 언어(ex: HTML)가 웹사이트의 몸체를 담당한다면 CSS는 옷과 액세서리처럼 꾸미는 역할을 담당한다고 할 수 있다. 즉, HTML 구조는 그대로 두고 CSS 파일만 변경해도 전혀 다른 웹사이트처럼 꾸밀 수 있다.
+
+현재 개발 중인 CSS3의 경우 그림자 효과, 그라데이션, 변형 등 그래픽 편집 프로그램으로 제작한 이미지를 대체할 수 있는 기능이 추가되었다. 또한 다양한 애니메이션 기능이 추가되어 어도비 플래시를 어느 정도 대체하고 있다.</div>
+
+    </div>
+
+  </body>
+
+
+</html>
