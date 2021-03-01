@@ -32,13 +32,15 @@ ALLOWED_HOSTS = ['192.168.0.10']
 # Application definition
 
 INSTALLED_APPS = [
+    'bulletin.apps.BulletinConfig',
+    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bulletin.apps.BulletinConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -124,3 +126,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'www', 'static')
 ]
+
+# 로그인이 정상적으로 되었을 떄 이동할 URL
+LOGIN_REDIRECT_URL = '/'
+# 로그아웃이 정상적으로 되었을 떄 이동할 URL
+LOGOUT_REDIRECT_URL = '/'
+
+

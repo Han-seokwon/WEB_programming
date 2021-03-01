@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container my-3">
+    <form method="post" class="post-form" action="{% url 'account:login' %}">
+        {% csrf_token %}
+<!--        로그인 과정에서 오류 발생할 경우에 대한 템플릿 가져옴-->
+        {% include "account/form_errors.html" %}
+        <div class="form-group">
+            <label for="username">ID: </label>
+            <input type="text" class="form-control" name="username" id="username"
+                   value="{{ form.username.value|default_if_none:'' }}">
+        </div>
+        <div class="form-group">
+            <label for="password">PW: </label>
+            <input type="password" class="form-control" name="password" id="password"
+                   value="{{ form.password.value|default_if_none:'' }}">
+        </div>
+        <button type="submit" class="btn btn-primary">로그인</button>
+    </form>
+</div>
+{% endblock %}

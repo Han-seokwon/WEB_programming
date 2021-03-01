@@ -20,5 +20,6 @@ from bulletin import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('bulletin/', include('bulletin.urls')),
-
+    path('account/', include('account.urls')),
+    path('', views.index, name='index')
 ]
