@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <style>
+
+  /*출처 https://opentutorials.org/module/2367/13526*/
+  *{
+    text-align:center;
+  }
+  body{
+    background-color:#fffaed;
+  }
+  .container1{
+    /* width: 800px; */
+    background-color: skyblue;
+    height: 100px;
+    display: flex;
+    /* flex-direction: container 내의 item의 주축, 방향을 지정; row 기본값)*/
+    /*해당 방향의 화면 전체를 사용*/
+    /*row-reverse: 오른쪽으로 가서 반대로 정렬 */
+    /*column: 수직으로 정렬*/
+    /*column-reverse: 수직으로 아래쪽으로 가서 반대로 정렬*/
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .item {
+    background-color: tomato;
+    color: white;
+    border: 1px solid white;
+    flex-basis: 50px;
+    /*flex-grow: item요소가 container 요소 내부에서 할당 가능한 공간의 정도; 기본값 0*/
+    /*여백을 가져가는 정도*/
+    /*모든 item의 flwx-grow가 1*/
+    flex-grow: 0;
+    }
+
+    /*item class 중에서 두번째 항목을 선택 */
+  .item:nth-child(2){
+    /*flex-basis: 크기지정*/
+    /*창이 작아져서 다른 item의 공간이 줄어들 수 있으면 그 만큼 작아짐*/
+    /*창 크기에 따라 200px보다 작아질 수 있음*/
+    flex-basis: 200px;
+    /*flex-shrink:0 창 크기에 따라 안 작아짐 */
+    /*1로 하면 다시 작아짐    */
+    flex-shrink: 1;
+    /*두번째 item의 flex-grow만 2*/
+    /*flex-grow: 2;*/
+    }
+
+    .item:nth-child(3){
+      flex-basis: 300px;
+      /*위에 2번째 아이템의 flex-shrink값은 1이고 3번째 아이템은 3이면*/
+      /*창이 작아질 때 3:1의 비율로 3번쨰 아이템이 더 빨리 작아짐*/
+      flex-shrink: 3;
+    }
+
+      /************************************/
+
+      .container2{
+        display: flex;
+        justify-content:center;
+
+      }
+
+      .holy_grail_layout{
+        display: flex;
+        flex-direction: column;
+        width:80%;
+      }
+
+      header{
+        /*align-self: 개별 item의 위치를 결정; align-items의 개별버전 */
+        /*align-self: center;*/
+        border-bottom: 1px solid gray;
+      }
+
+      .content{
+        display: flex;
+      }
+
+      .content nav{
+        border-right: 1px solid gray;
+      }
+
+      .content aside{
+        border-left: 1px solid gray;
+      }
+
+      .content nav, .content aside{
+        flex-basis: 150px;
+        flex-shrink:0;
+      }
+
+      .content main{
+        flex-grow:1;
+      }
+
+
+      /* item간 순서를 바꿀 떄는 order
+      nav{
+        order:0;
+      }
+      main{
+        order:2;
+      }
+      aside{
+        order:1;
+      }
+      */
+      footer{
+        border-top: 1px solid gray;
+      }
+  </style>
+
+</head>
+
+<body>
+<h1>flex</h1>
+
+<h2>basic</h2>
+  <div class='container1'>
+    <div class='item'>
+      <p>1</p>
+    </div>
+    <div class='item'>
+      <p>2</p>
+    </div>
+    <div class='item'>
+      <p>3</p>
+    </div>
+    <div class='item'>
+      <p>4</p>
+    </div>
+    <div class='item'>
+      <p>5</p>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br>
+
+
+<div class="container2">
+    <div class='holy_grail_layout'>
+      <header>
+        <h1>header</h1>
+      </header>
+      <section class='content'>
+        <nav>
+          <ul>
+            <li>index1</li>
+            <li>index2</li>
+            <li>index3</li>
+          </ul>
+        </nav>
+
+        <main>
+          Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.[1] CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.[2]
+  CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts.[3] This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple web pages to share formatting by specifying the relevant CSS in a separate .css file which reduces complexity and repetition in the structural content as well as enabling the .css file to be cached to improve the page load speed between the pages that share the file and its formatting.
+        </main>
+
+        <aside>
+          AD
+        </aside>
+
+      </section>
+
+      <footer>
+        <p>footer</p>
+      </footer>
+
+  </div>
+</div>
+</body>
+
+</html>

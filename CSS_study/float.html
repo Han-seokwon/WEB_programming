@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <style>
+    /* float: 이미지를 어떻게 띄워서 텍스트와 배치하는지를 정하는 속성 */
+    /* - 레이아웃에도 사용됨 */
+      /* - holy grail layout을 만들 수 있지만 크기가 고정됨(flex로 구현하는 것이 효율적) */
+    /* -float를 이용해 본문에 이미지를 자연스럽게 삽입 가능 */
+
+    *{
+      box-sizing: border-box;
+      text-align:center;
+    }
+
+    /* container의 크기를 고정시킴으로써 창크기가 변함에 따라 레이아웃이 흐트러지는 것을 막을 수 있음 */
+    .container{
+      /* css에서 폭을 계산할 때 테두리를 포함하므로
+      header, nav, asider의 width값을 더하고 테두리 px값을 더해서 width값을 결정*/
+      /* 하지만 여기서는 box-sizing: border-box;이 적용되어 테두리값 상관 안 함 */
+      width: 1000px;
+      border:1px solid gray;
+      /* 가운데 정렬 */
+      margin:0 auto;
+    }
+    header{
+      border-bottom:1px solid gray;
+    }
+    nav{
+      float:left;
+      width:150px;
+      /* nav가 길어지거나 article이 길어지면 boder가 끊길 수 있어 nav와 article에 border를 해주어야함 */
+      border-right: 1px solid gray;
+    }
+    article{
+      float: left;
+      width: 700px;
+      border-left: 1px solid gray;
+      /* margin-left: -1px;왼쪽과 오른쪽의 마진이 겹쳐지며 border가 완전히 겹쳐짐 */
+      margin-left: -1px;
+      border-right: 1px solid gray;
+    }
+    aside{
+      float:left;
+      width:150px;
+      border-left: 1px solid gray;
+      margin-left: -1px;
+    }
+    footer{
+      clear:both;
+      border-top: 1px solid gray;
+    }
+    img{
+      width:300px;
+      height:300px;
+      float:left;
+      margin:20px;
+    }
+    article p{
+      text-align:justify;
+    }
+    /* clear: float를 무시할 방향을 설정; left, right, both 가능 */
+    #clear_sentence{
+      clear:both;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class='container'>
+    <header>
+      <h1>holy grail layout(float)</h1>
+    </header>
+    <nav>
+      <ul>
+        <li>index1</li>
+        <li>index2</li>
+        <li>index3</li>
+      </ul>
+    </nav>
+    <article>
+       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Personal_computer%2C_exploded_5.svg/300px-Personal_computer%2C_exploded_5.svg.png">
+       <p id='sentence1'>
+       하드웨어<a href='https://ko.wikipedia.org/wiki/%EC%BB%B4%ED%93%A8%ED%84%B0_%ED%95%98%EB%93%9C%EC%9B%A8%EC%96%B4'>
+         (출처:위키백과)</a>
+       컴퓨터 하드웨어(computer hardware, H/W, 순화 용어: 굳은모)는 중앙 처리 장치, 모니터, 자판, 컴퓨터 기억 장치, 그래픽 카드, 사운드 카드, 메인보드와 같은 컴퓨터의 물리적 부품을 의미한다.[1] 입력, 연산, 제어, 기억, 출력 등 다섯 가지 기능을 구현하며 이를 위해 컴퓨터는 여러 가지 부품들로 구성되어 있다. 이와 반대가 되는 용어는 소프트웨어이며 이는 특정 작업을 수행하기 위해 하드웨어에 의해 저장되고 실행되는 명령어를 의미한다.
+      </p>
+      <p id="clear_sentence">
+        중앙 처리 장치(CPU)와 램 등을 꽂고, 확장 카드를 위한 슬롯을 가지고 있는 메인보드
+       램(RAM) - 프로그램 실행과 순간 데이터 저장을 위한 공간으로, 하드 드라이브의 접근 횟수를 줄이는 역할을 한다. 보통 램이 많을수록 성능이 향상된다.
+      </p>
+    </article>
+    <aside >
+      ad
+    </aside>
+    <footer>
+    Copyright
+    </footer>
+  </div>
+
+</body>
+
+</html>

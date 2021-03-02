@@ -1,0 +1,7 @@
+{% if list_of_name %}
+    {%for i in list_of_name %}
+        <p>{{forloop.counter}} : {{i}}</p>
+    {% endfor %}
+{% endif%}
+
+<h2><a href = "{% url 'survey:name' %}">Enter name again.</a></h2>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <style>
+
+      body{
+        border: 4px solid #74ed94;
+      }
+      body .title{
+        font-size:50px;
+        text-align:center;
+        padding:20px;
+        border-bottom: 4px solid #74ed94;
+      }
+      .container{
+        display:grid;
+        grid-template-columns:180px 1fr;
+      }
+
+      .container .index{
+        border-right: 4px solid  #74ed94;
+
+        text-align:center;
+        width:150px;
+      }
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class='title'>TITLE</div>
+
+    <div class='container'><!--부모 div -->
+      <div class='index'>
+        <nav>
+          <div>index1</div>
+          <div>index2</div>
+          <div>index3</div>
+        <nav>
+      </div>
+        <div class='content'>content: This is a website to study CSS grid.</div>
+
+    </div>
+  </body>
+
+
+</html>

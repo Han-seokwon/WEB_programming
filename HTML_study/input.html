@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+</head>
+<body>
+  <!-- input 제출양식  -->
+  <!-- 사용자가 정해진 정보만 입력하도록 하는 것; 강제  -->
+  <!-- 모바일  편의성 증대 -->
+  <form action="#">
+    <!-- type=number 숫자만 입력 가능  -->
+    <!-- 모바일에서 입력창을 클릭하면 자판이 바로 숫자 자판으로 바뀜  -->
+    <!-- 모바일에서 입력 편의성 증대-->
+    <!-- 사용자가 문자나 정해진 숫자 구간 밖의 숫자를 입력하고 제출하면 경고창이 뜸-->
+    <h2>type=number</h2>
+    <p><input type=number min= 10 max= 15></p>
+
+    <!-- date 날짜만 입력가능  -->
+    <!-- 캘린더에서 선택가능  -->
+    <!-- 연/월/일  -->
+    <h2>type=number</h2>
+    <p><input type=date name=date></p>
+
+    <!-- 캘린더에서 선택가능  -->
+    <!-- 연/월 -->
+    <h2>type=month</h2>
+    <p><input type=month name=mon></p>
+
+    <!-- 캘린더에서 선택가능  -->
+    <!-- 연/주 -->
+    <h2>type=week</h2>
+    <p><input type=week name=week></p>
+
+    <!-- 오전/오후 시:분 -->
+    <h2>type=time</h2>
+    <p><input type=time name=time></p>
+
+    <!-- 이메일의 형식에 맞게 abc123@naver.com -->
+    <!-- 모바일에서는 이메일을 입력하기 쉬운 키보드가 뜸 -->
+    <!-- 이메일 형식이 아니면 경고창 뜸-->
+    <h2>type=email</h2>
+    <p><input type=email ></p>
+
+    <!-- 검색 -->
+    <!-- 일반적인 텍스트 필드와 비슷하지만, 정보로서의 가치를 높일 수 있음 -->
+    <!-- 이것이 검색을 위한 필드라는 의미를 부여 -->
+    <h2>type=search</h2>
+    <p><input type=search ></p>
+
+    <!-- 전화 -->
+    <!-- 모바일에서 전화번호를 입력하기 쉬운 키보드가 뜸 -->
+    <h2>type=tel</h2>
+    <p><input type=tel ></p>
+
+    <!-- URL만 입력 -->
+    <!-- URL이 아니면 경고창 -->
+    <!-- 모바일에서 URL입력하기 쉬운 키보드-->
+    <h2>type=url</h2>
+    <p><input type=url ></p>
+
+    <!-- 슬라이드-->
+    <!-- 범위에 맞게-->
+    <h2>type=range</h2>
+    <p><input type=range min=5 max=20></p>
+
+    <input type=submit>
+
+
+  </form>
+
+</body>
+</html>
